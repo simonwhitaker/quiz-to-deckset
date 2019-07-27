@@ -1,5 +1,5 @@
 def question_page(q): if .type == "WHAT_LINKS" then
-    "# \(.number) What Links?\n\n" + (q.question | split("; ") | map("* \(.)") | join("\n"))
+    "# \(.number) What links?\n\n" + (q.question | rtrimstr("?") | split("; ") | map("* \(.)") | join("\n"))
 else
     "# \(.number)\n\n\(q.question)"
 end;
