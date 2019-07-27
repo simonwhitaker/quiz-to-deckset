@@ -1,15 +1,15 @@
-def question_page(q): if .type == "WHAT_LINKS" then
-    "# \(.number) What links?\n\n" + (q.question | rtrimstr("?") | split("; ") | map("* \(.)") | join("\n"))
+def question_page: if .type == "WHAT_LINKS" then
+    "# \(.number) What links?\n\n" + (.question | rtrimstr("?") | split("; ") | map("* \(.)") | join("\n"))
 else
-    "# \(.number)\n\n\(q.question)"
+    "# \(.number)\n\n\(.question)"
 end;
 
 .questions |
     # Question pages
-    map(question_page(.))
+    map(. | question_page)
 
     # Repeat questions, interleaved with answers
-    + map(question_page(.), .answer)
+    + map(. | question_page, .answer)
 
     # Summarise answers, five at a time
     + [
