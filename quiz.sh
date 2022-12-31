@@ -5,7 +5,7 @@ set -o errexit
 set -o pipefail
 set -o noclobber
 
-JQ=/usr/local/bin/jq
+JQ=$(type -p jq)
 
 # Set the preferred theme
 # https://www.deckset.com/help/tutorials/using-configuration-commands.html
