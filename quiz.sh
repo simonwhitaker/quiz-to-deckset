@@ -12,4 +12,4 @@ JQ=$(type -p jq)
 echo "theme: Plain Jane, 2"
 echo
 
-curl -sSf https://fiendish-eaton.herokuapp.com/api/quiz | $JQ -r -f $(dirname $0)/quiz.jq
+curl -sSf https://fiendish-eaton.herokuapp.com/api/quiz | $JQ -r -f "$(dirname "$0")"/quiz.jq
